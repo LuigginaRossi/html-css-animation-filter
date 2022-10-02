@@ -79,12 +79,12 @@
 
 /* es7 */
 .ex-7-img{
-  animation: filters 4s .3s 3;
+  animation: filters 6s .3s 3;
 }
 
 @keyframes filters {
     0%,100%{
-        filter: drop-shadow(2px 4px 6px black);;
+        filter:drop-shadow(-9px 21px 19px grey);
     }
     33%{
         filter: opacity(80%);
@@ -98,7 +98,7 @@
 
 /* es8 */
 .ex-8-img{
-    animation: filters-border-radius 5s .8s 2;
+    animation: filters-border-radius 8s .8s 2;
   }
   
   @keyframes filters-border-radius {
@@ -173,7 +173,29 @@
 
 .ex-11-icon {
     font-size: 60px;
+    /* es11 */
+    animation: spin-reverse 2s linear 3;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}   
+@keyframes spin-reverse {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    75%{
+        transform: rotate(270deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
+/* /es11 */
+
 .ex-12-button, .ex-13-button {
     position: relative;
     display: block;
@@ -187,6 +209,23 @@
     text-align: center;
     text-decoration: none;
 }
+
+/* es12 */
+.ex-12-button{
+    animation: button-width-relative 2s ease-in-out .3s;
+}
+@keyframes button-width-relative {
+    0%,100%{
+        width: 200px;
+        position:relative;
+    }
+    50%{
+        width: 100px;
+        position: static;
+    }
+}
+/* /es12 */
+
 .ex-12-top-white, .ex-13-top-white {
     position: absolute;
     top: -10px;
@@ -197,9 +236,41 @@
 }
 .ex-12-bottom-white, .ex-13-bottom-white {
     position: absolute;
-    bottom: -10px;
-    right: 20%;
+    /* bottom: -10px;
+    right: 20%; */
     background: #f5f5f5;
     width: 60px;
     height: 20px;
 }
+/* es13 */
+.ex-13-button .ex-13-bottom-white{
+    bottom: -10px;
+    right: -15%;
+    animation: white-button 4s linear .3s;
+}
+.ex-13-top-white{
+    display: none;
+}
+@keyframes white-button {
+    0%{
+        bottom: -10px;
+        right: -15%;
+        transform: translate();
+    }
+    25%{
+        bottom: -10px;
+        right:85%;
+        transform: translate(0);
+    }
+    50%{
+        bottom: 85%;
+        right: 85%;
+        transform: translate(0);
+    }
+    75%{
+        bottom: 85%;
+        right: -15%;
+        transform: translate(0);
+    }
+}
+/*  /es13 */
