@@ -194,7 +194,7 @@
         transform: rotate(360deg);
     }
 }
-/* /es11 */
+/* /es11=> non funziona */
 
 .ex-12-button, .ex-13-button {
     position: relative;
@@ -209,6 +209,7 @@
     text-align: center;
     text-decoration: none;
 }
+
 
 /* es12 */
 .ex-12-button{
