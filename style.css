@@ -3,7 +3,7 @@
     height: 100px;
     border: 1px solid red;
     /* es1 */
-    transition: background-color 3s;
+    transition: background-color .5s;
 }
 .ex-1-square:hover{
     background-color: red;
@@ -15,7 +15,7 @@
     height: 100px;
     background: red;
     /* es2 */
-    transition-duration: 2s;
+    transition-duration: 1.5s;
     transition-delay: .3s;
     transition-timing-function: ease;
 }
@@ -29,7 +29,7 @@
     height: 100px;
     background: red;
     /* es3 */
-    transition: 2s .3s;
+    transition: 1s .3s;
 }
 .ex-3-square:hover{
     border-radius: 50%;
@@ -42,7 +42,7 @@
     height: 100px;
     background: red;
     /* es4 */
-    transition: background 2s ease-out .3s ;
+    transition: background 1s ease-out .3s ;
 }
 .ex-4-square:hover{
     background: none;
@@ -70,7 +70,7 @@
 
 /* es6 */
 .ex-6-img{
-    transition: filter 1s linear;
+    transition: filter .5s linear;
 }
 .ex-6-img:hover{
     filter: grayscale(100%);
@@ -84,14 +84,17 @@
 
 @keyframes filters {
     0%,100%{
-        filter:drop-shadow(-9px 21px 19px grey);
+        filter: drop-shadow(-9px 21px 19px grey);
+        border-radius: 0;
     }
-    33%{
-        filter: opacity(80%);
+    50%{
+        filter: invert(100%);;
+        border-radius: 50%;
     }
 
     66%{
         filter: none;
+        border-radius: 10%;
     }
 }
 /* /es7 */
@@ -103,16 +106,16 @@
   
   @keyframes filters-border-radius {
       0%,100%{
-          filter: opacity(80%);
-          border-radius: 0;
+          filter: blur(1rem);
+          border-radius: 30%;
       }
       50%{
-          filter: grayscale(80%);
+          filter:none;
           border-radius: 50%;
       }
   
       75%{
-          filter: none;
+          filter: grayscale(100%);
           border-radius:0%
       }
   }
@@ -122,25 +125,26 @@
     margin: 50px 100px;
     width: 400px;
     /* es9 */
-    animation: filter-border-scale 4s .5s step-start;
+    animation: filter-border-scale 4s .5s step-start 2;
 }
 
 @keyframes filter-border-scale {
-    0%,100%{
-        filter: opacity(80%);
-        border-radius: 0;
-        transform: scale(1);
-    }
-    50%{
-        filter: grayscale(80%);
+    0%,100% {
+        filter: grayscale(100%);
         border-radius: 50%;
-        transform: scale(1.5);
+        transform: scale (1);
     }
 
-    80%{
-        filter: none;
-        border-radius:4%;
-        transform: scale(.8);
+    40% {
+        filter: none ;
+        border-radius: 30%;
+        transform: scale (0);
+    }
+
+    70% {
+        filter: sepia(150%) blur(.5rem);
+        border-radius: 40%;
+        transform: scale (1.08);
     }
 }
 /* /es9 */
@@ -149,23 +153,27 @@
 .ex-10-icon {
     font-size: 60px;
     /* es10 */
-    animation: spin 3s infinite linear;
+    animation: spin 1s infinite linear;
     /* sistemare e cercare la timing-function adatta; */
 }
 @keyframes spin {
-    0%{
+    0% {
         transform: rotate(0deg);
     }
-    25%{
+
+    25% {
         transform: rotate(90deg);
     }
-    50%{
+
+    50% {
         transform: rotate(180deg);
     }
-    75%{
+
+    75% {
         transform: rotate(270deg);
     }
-    100%{
+
+    100% {
         transform: rotate(360deg);
     }
 }
@@ -174,28 +182,28 @@
 .ex-11-icon {
     font-size: 60px;
     /* es11 */
-    animation: spin-reverse 2s linear 3;
+    animation: spin-reverse 2s linear infinite;
     /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }   
 @keyframes spin-reverse {
-    0%{
+    0%,100% {
         transform: rotate(0deg);
     }
-    25%{
+
+    25% {
         transform: rotate(90deg);
     }
-    50%{
+
+    50% {
         transform: rotate(180deg);
     }
-    75%{
+
+    75% {
         transform: rotate(270deg);
     }
-    100%{
-        transform: rotate(360deg);
-    }
 }
-/* /es11=> non funziona */
 
+/* fine seconda prova es 11 */
 .ex-12-button, .ex-13-button {
     position: relative;
     display: block;
@@ -212,9 +220,10 @@
 
 
 /* es12 */
-.ex-12-button{
-    animation: button-width-relative 2s ease-in-out .3s;
+.ex-12-button {
+    animation: button-width-relative 2s ease-in-out .3s infinite;
 }
+
 @keyframes button-width-relative {
     0%,100%{
         width: 200px;
@@ -225,6 +234,7 @@
         position: static;
     }
 }
+
 /* /es12 */
 
 .ex-12-top-white, .ex-13-top-white {
@@ -247,11 +257,12 @@
 .ex-13-button .ex-13-bottom-white{
     bottom: -10px;
     right: -15%;
-    animation: white-button 4s linear .3s;
+    animation: white-button 4s linear .3s infinite;
 }
 .ex-13-top-white{
     display: none;
 }
+
 @keyframes white-button {
     0%{
         bottom: -10px;
@@ -273,6 +284,6 @@
         right: -15%;
         transform: translate(0);
     }
-    
+
 }
 /*  /es13 */
