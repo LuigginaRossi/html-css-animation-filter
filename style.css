@@ -15,7 +15,7 @@
     height: 100px;
     background: red;
     /* es2 */
-    transition-duration: 1.5s;
+    transition-duration: .8s;
     transition-delay: .3s;
     transition-timing-function: ease;
 }
